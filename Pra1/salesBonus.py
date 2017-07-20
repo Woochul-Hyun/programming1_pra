@@ -5,3 +5,9 @@ If sales are $1,000 or over, the bonus is 15%.
 """
 
 sales = float(input("Enter sales: $"))
+if sales < 1000:
+    result = sales * 0.1
+    print(result)
+else:
+    result = sales * 0.15
+    print(result)
