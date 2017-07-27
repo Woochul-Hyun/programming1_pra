@@ -8,9 +8,10 @@ INITIAL_PRICE = 10.0
 OUTPUT_FILE = "data.txt"
 
 price = INITIAL_PRICE
-print("Startin price: ${:,.2f}".format(price))
-day = 0
 out_file = open(OUTPUT_FILE, 'w')
+# out_file.write("abc") ## 이렇게 쓰는 방식도 있음 작동시키면 starting price앞에 abc가 붙음
+print("Starting price: ${:,.2f}".format(price), file=out_file)
+day = 0
 while price >= MIN_PRICE and price <= MAX_PRICE:
     price_change = 0
                # generate a random integer of 1 or 2
@@ -24,6 +25,5 @@ while price >= MIN_PRICE and price <= MAX_PRICE:
         price_change = random.uniform(-MAX_DECREASE, 0)
         day += 1
     price *= (1 + price_change)
-    print("On day {} price is: {:.2f} ".format(day, price))
-
+    print("On day {} price is: {:.2f} ".format(day, price), file=out_file)
 out_file.close()
