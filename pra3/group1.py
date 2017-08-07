@@ -22,5 +22,5 @@ def main():
     password = get_password()
     encoded = encode(password)
     print_to_file(encoded)
-    
+
 main()

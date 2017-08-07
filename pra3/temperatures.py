@@ -9,6 +9,6 @@ def fahrenheit_to_celsius(farenheit):
 def main():
     celsius = float(input("celsius:"))
     fahrenheit = float(input("fahrenheit:"))
-    print(celsius_to_fahrenheit(celsius))
-    print(fahrenheit_to_celsius(fahrenheit))
+    print("celsius to fahrenheit is: ", celsius_to_fahrenheit(celsius))
+    print("fahrenheit to celsius is: ", fahrenheit_to_celsius(fahrenheit))
 main()
