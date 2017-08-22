@@ -24,7 +24,7 @@ print(get_subject.__annotations__)
 print(get_subject.__name__)
 print(get_subject.__dict__)
 
-name_list = [["Jone", 20, "Black"]["Alice", 25, "Yellow"]["Amy", 18, "White"]]
+name_list = [["Jone", 20, "Black"],["Alice", 25, "Yellow"],["Amy", 18, "White"]]
 name_list.sort()
 print(name_list)
 
@@ -34,5 +34,8 @@ print(name_list)
 name_list.sort(key=itemgetter(1), reverse=True) #나이가 많은순으로표시됨
 print(name_list)
 
-name_list.sort(key=itemgetter(1,2), reverse=True)
+name_list.sort(key=itemgetter(1,2), reverse=True) #sort multi layer
 print(name_list)
+
+str_msg = "abcde"
+print("-->".join(str_msg)) #string join operator
