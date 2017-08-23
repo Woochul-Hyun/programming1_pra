@@ -1,6 +1,14 @@
-from operator import itemgetter
 
-def get_oldest(name_list, age_list):
-    name_list = ["John", "Amy", "Ann"]
-    age_list = [20, 40, 30]
-    print(get_oldest(name_list, age_list))
+def get_oldest():
+    names = ["John", "Amy", "Ann"]
+    ages = [20, 40, 30]
+    oldest_person = names[ages.index(max(ages))]
+    print(oldest_person)
+    return oldest_person
+
+
+
+def main():
+    oldest_person = get_oldest()
+
+main()
