@@ -12,7 +12,7 @@ class BoxLayoutDemo(App):
         self.root.ids.output_label.text = "Hello " + self.root.ids.input_name.text
 
     def clear_all(self):
-        self.root.ids.input_name.build()
-        self.root.ids.output_label.build()
+        self.root.ids.input_name.clear_widgets()
+        self.root.ids.output_label.clear_widgets()
 
 BoxLayoutDemo().run()
