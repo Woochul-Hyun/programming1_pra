@@ -14,7 +14,7 @@ class DynamicWidgetsApp(App):
 
     def build(self):
         self.title = "Dynamic Widgets"
-        self.root = Builder.load_file('dynamic_widgets.kv')
+        self.root = Builder.load_file('dynamic_widgets_pra.kv')
         self.create_widgets()
         return self.root
 
