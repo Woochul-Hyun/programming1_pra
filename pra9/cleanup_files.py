@@ -1,32 +1,45 @@
 import os, shutil
+from re import findall
+
+__author__ = 'Lindsay Ward'
 
 print("Current directory is", os.getcwd())
 
-# change to desired directory
-os.chdir('Lyrics/Christmas')
-# print a list of all files (test)
-# print(os.listdir('.'))
+os.chdir('Lyrics')
 
-# make a new directory
-# os.mkdir('temp')
-
-# loop through each file in the (original) directory
-for filename in os.listdir('.'):
-    # ignore directories, just process files
-    if not os.path.isdir(filename):
-        new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-        print(new_name)
-
-        # Option 1: rename file to new name - in place
-        # os.rename(filename, new_name)
-
-        # Option 2: move file to new place, with new name
-        # shutil.move(filename, 'temp/' + new_name)
+def normal_formatting(string):
+    return string.replace(" ", "_")
 
 
-# Processing subdirectories using os.walk()
-# os.chdir('..')
-# for dir_name, subdir_list, file_list in os.walk('.'):
-#     print("In", dir_name)
-#     print("\tcontains subdirectories:", subdir_list)
-#     print("\tand files:", file_list)
+def no_space_formatting(string):
+    formatted = None
+    for each in findall('[A-Z][^A-Z]', string.split('.')[0]):
+        if not formatted:
+            formatted = each
+        else:
+            formatted += "_" + each
+    return formatted
+
+
+def get_dirs():
+    dirs = []
+    for name in os.listdir('.'):
+        if os.path.isdir(name):
+            dirs.append(name)
+    return dirs
+
+dirs = get_dirs()
+
+for dir in dirs:
+    for filename in os.listdir('./' + dir):
+        filename = str(filename.split('.')[0])
+        if not os.path.isdir(filename) and not "None":
+            if filename.islower():
+                pass
+            elif " " in filename:
+                filename = normal_formatting(filename)
+            else:
+                filename = no_space_formatting(filename)
+            filename.title()
+            filename += ".txt"
+            print(filename)
